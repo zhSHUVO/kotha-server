@@ -1,8 +1,14 @@
 const express = require("express");
-const { newBlogPost } = require("../controllers/blogs.controller");
+const {
+    newBlogPostController,
+    allBlogPostsController,
+} = require("../controllers/blogs.controller");
 
 const blogRouter = express.Router();
 
-blogRouter.route("/blogs").post(newBlogPost);
+blogRouter
+    .route("/blogs")
+    .post(newBlogPostController)
+    .get(allBlogPostsController);
 
 module.exports = blogRouter;

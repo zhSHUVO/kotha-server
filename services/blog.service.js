@@ -8,3 +8,11 @@ module.exports.newBlogPostService = (data) => {
 module.exports.allBlogPostsService = () => {
     return BlogModel.find({});
 };
+
+module.exports.blogPostUpdateService = (id, data) => {
+    return BlogModel.updateOne(
+        { _id: id },
+        { $set: data },
+        { runValidators: true }
+    );
+};

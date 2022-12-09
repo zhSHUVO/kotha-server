@@ -16,3 +16,7 @@ module.exports.blogPostUpdateService = (id, data) => {
         { runValidators: true }
     );
 };
+
+module.exports.blogPostDeleteService = (id) => {
+    return BlogModel.deleteOne({ _id: id });
+};

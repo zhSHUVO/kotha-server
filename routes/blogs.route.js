@@ -3,6 +3,7 @@ const {
     newBlogPostController,
     allBlogPostsController,
     blogPostUpdateController,
+    blogPostDeleteController,
 } = require("../controllers/blogs.controller");
 
 const blogRouter = express.Router();
@@ -12,6 +13,9 @@ blogRouter
     .post(newBlogPostController)
     .get(allBlogPostsController);
 
-blogRouter.route("/blog/:id").patch(blogPostUpdateController);
+blogRouter
+    .route("/blog/:id")
+    .patch(blogPostUpdateController)
+    .delete(blogPostDeleteController);
 
 module.exports = blogRouter;

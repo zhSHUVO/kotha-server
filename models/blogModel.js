@@ -13,15 +13,15 @@ const blogSchema = mongoose.Schema(
             required: [true, "Post title is required!"],
             trim: true,
         },
-        post: {
+        description: {
             type: String,
             required: [
                 true,
                 "You've to write something to post! Please write somthing.",
             ],
         },
-        tag: {
-            type: String,
+        tags: {
+            type: Array,
             required: [true, "write your tags devided by space."],
             trim: true,
         },
@@ -31,6 +31,6 @@ const blogSchema = mongoose.Schema(
     }
 );
 
-const BlogModel = mongoose.model("BlogModel", blogSchema);
+const BlogPosts = mongoose.model("BlogPosts", blogSchema);
 
-module.exports = BlogModel;
+module.exports = BlogPosts;

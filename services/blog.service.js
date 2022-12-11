@@ -1,16 +1,16 @@
-const BlogModel = require("../models/blogModel");
+const BlogPosts = require("../models/blogModel");
 
 module.exports.newBlogPostService = (data) => {
-    const newBlogPost = new BlogModel(data);
+    const newBlogPost = new BlogPosts(data);
     return newBlogPost.save();
 };
 
 module.exports.allBlogPostsService = () => {
-    return BlogModel.find({});
+    return BlogPosts.find({});
 };
 
 module.exports.blogPostUpdateService = (id, data) => {
-    return BlogModel.updateOne(
+    return BlogPosts.updateOne(
         { _id: id },
         { $set: data },
         { runValidators: true }
@@ -18,5 +18,5 @@ module.exports.blogPostUpdateService = (id, data) => {
 };
 
 module.exports.blogPostDeleteService = (id) => {
-    return BlogModel.deleteOne({ _id: id });
+    return BlogPosts.deleteOne({ _id: id });
 };

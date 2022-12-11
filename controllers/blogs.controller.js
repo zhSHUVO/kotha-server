@@ -1,4 +1,3 @@
-const BlogModel = require("../models/blogModel");
 const {
     allBlogPostsService,
     newBlogPostService,

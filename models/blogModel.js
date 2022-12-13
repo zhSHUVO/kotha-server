@@ -6,7 +6,6 @@ const blogSchema = mongoose.Schema(
             type: String,
             required: [true, "Please enter your name"],
             trim: true,
-            lowercase: true,
         },
         title: {
             type: String,
@@ -20,8 +19,18 @@ const blogSchema = mongoose.Schema(
                 "You've to write something to post! Please write somthing.",
             ],
         },
-        tags: {
-            type: Array,
+        tag1: {
+            type: String,
+            required: [true, "write your tags devided by space."],
+            trim: true,
+        },
+        tag2: {
+            type: String,
+            required: [true, "write your tags devided by space."],
+            trim: true,
+        },
+        tag3: {
+            type: String,
             required: [true, "write your tags devided by space."],
             trim: true,
         },

@@ -9,6 +9,10 @@ module.exports.allBlogPostsService = () => {
     return BlogPosts.find({});
 };
 
+module.exports.getSpecificBlogService = (id) => {
+    return BlogPosts.findById(id);
+};
+
 module.exports.blogPostUpdateService = (id, data) => {
     return BlogPosts.updateOne(
         { _id: id },

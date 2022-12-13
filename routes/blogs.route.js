@@ -4,6 +4,7 @@ const {
     allBlogPostsController,
     blogPostUpdateController,
     blogPostDeleteController,
+    getSpecificController,
 } = require("../controllers/blogs.controller");
 
 const blogRouter = express.Router();
@@ -15,6 +16,7 @@ blogRouter
 
 blogRouter
     .route("/blog/:id")
+    .get(getSpecificController)
     .patch(blogPostUpdateController)
     .delete(blogPostDeleteController);
 

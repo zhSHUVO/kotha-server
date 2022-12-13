@@ -3,6 +3,7 @@ const {
     newBlogPostService,
     blogPostUpdateService,
     blogPostDeleteService,
+    getSpecificBlogService,
 } = require("../services/blog.service");
 
 module.exports.newBlogPostController = async (req, res) => {
@@ -26,6 +27,24 @@ module.exports.allBlogPostsController = async (req, res) => {
         res.status(200).json({
             operation: "successful",
             data: allBlogPosts,
+        });
+    } catch (error) {
+        res.status(500).json({
+            operation: "failed",
+            message: error.message,
+        });
+    }
+};
+
+module.exports.getSpecificController = async (req, res) => {
+    const {
+        params: { id },
+    } = req;
+    try {
+        const specificBlogPosts = await getSpecificBlogService(id);
+        res.status(200).json({
+            operation: "successful",
+            data: specificBlogPosts,
         });
     } catch (error) {
         res.status(500).json({

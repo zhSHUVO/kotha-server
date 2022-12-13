@@ -17,7 +17,7 @@ blogRouter
 blogRouter
     .route("/blog/:id")
     .get(getSpecificController)
-    .patch(blogPostUpdateController)
+    .put(blogPostUpdateController)
     .delete(blogPostDeleteController);
 
 module.exports = blogRouter;
